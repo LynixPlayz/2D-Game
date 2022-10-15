@@ -4,27 +4,34 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private InputManager im;
+    private Rigidbody2D rb;
+    private Vector2 moveDirection;
+
+    void Awake()
     {
-        
+        im = GetComponent<InputManager>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
     }
 
-    void HandleAllMovement() {
-
+    public void HandleAllMovement() {
+        HandleTranslation();
+        HandleRotation();
     }
 
     void HandleTranslation() {
-
+        moveDirection = transform.up * im.VerticalInput;
+        moveDirection += new Vector2((transform.right * im.HorizontalInput).x, (transform.right * im.HorizontalInput).y);
+        moveDirection.y = 0;
+        moveDirection.Normalize();
     }
 
     void HandleRotation() {
-        
+
     }
 }

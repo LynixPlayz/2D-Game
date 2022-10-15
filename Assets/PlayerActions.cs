@@ -20,7 +20,7 @@ public class @PlayerActions : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Movement"",
-                    ""type"": ""Value"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""7b653b16-d7ab-4335-9c90-431dd59a00b7"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -130,7 +130,6 @@ public class @PlayerActions : IInputActionCollection, IDisposable
     public void Enable()
     {
         asset.Enable();
-        
     }
 
     public void Disable()
