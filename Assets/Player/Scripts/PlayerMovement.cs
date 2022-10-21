@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private InputManager im;
     private Rigidbody2D rb;
-    private Vector2 moveDirection;
+    public Vector3 moveDirection;
 
     void Awake()
     {
@@ -26,9 +26,12 @@ public class PlayerMovement : MonoBehaviour
 
     void HandleTranslation() {
         moveDirection = transform.up * im.VerticalInput;
-        moveDirection += new Vector2((transform.right * im.HorizontalInput).x, (transform.right * im.HorizontalInput).y);
-        moveDirection.y = 0;
+        moveDirection += new Vector3((transform.right * im.HorizontalInput).x, 0f, 0f);
+        moveDirection.z = 0;
         moveDirection.Normalize();
+        Vector3 moveVelocity = moveDirection;
+        rb.velocity = moveVelocity;
+        
     }
 
     void HandleRotation() {

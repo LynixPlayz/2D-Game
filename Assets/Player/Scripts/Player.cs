@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         im.HandleAllInput();
+        Debug.Log("Test 1");
     }
 
     void FixedUpdate() {

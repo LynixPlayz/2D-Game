@@ -18,15 +18,15 @@ public class InputManager : MonoBehaviour
         Debug.Log("Test 2");
     }
 
-    void Awake(){
-        pa = new PlayerActions();
-    }
+    //void Awake(){
+        
+    //}
 
     void OnEnable() {
         if (pa == null){
             pa = new PlayerActions();
             pa.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
-            Debug.Log(i.ReadValue<Vector2>().x.ToString() + " " + i.ReadValue<Vector2>().y.ToString());
+            //Debug.Log(i.ReadValue<Vector2>().x.ToString() + " " + i.ReadValue<Vector2>().y.ToString());
         }
         pa.Enable();
     }
